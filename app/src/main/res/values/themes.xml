@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WordPuzzle" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textAlignment">gravity</item>
+        <item name="android:textDirection">locale</item>
+        <item name="toolbarNavigationButtonStyle">@style/Toolbar.Button.Navigation.Tinted</item>
+        <item name="android:statusBarColor">@color/colorPrimary</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Toolbar.Button.Navigation.Tinted" parent="Widget.AppCompat.Toolbar.Button.Navigation">
+        <item name="tint">@color/colorPrimary</item>
+    </style>
+
+    <style name="AccentProgressTransparent" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/progressBarColor</item>
+    </style>
+
+    <style name="MyAlertDialogStyle" parent="Theme.MaterialComponents.Light.Dialog.Alert">
+        <item name="colorAccent">@color/black</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="themeOverlay.App.MaterialAlertDialog" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorSecondary">@color/black</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MaterialAlertDialog.App.Title.Text
+        </item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.App.Button</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.App.Button</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/BodyTextStyleCenter</item>
+    </style>
+    <!--<item name="fontFamily">@font/arial_bold</item>-->
+    <style name="MaterialAlertDialog.App.Title.Text" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">@dimen/_10sdp</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+    </style>
+    <!--<item name="fontFamily">@font/calibri_regular</item>-->
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="textAllCaps">false</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:textColor">@color/progressBarColor</item>
+    </style>
+    <!--<item name="android:fontFamily">@font/calibri_regular</item>-->
+    <style name="BodyTextStyleCenter" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:letterSpacing">0.03</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 36 color white akaya kanadaka regular letterSpacing 0.01-->
+    <style name="HeaderCenterTitle">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_27sdp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FEF8EF</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">4</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+    <!--Textview Size 13 color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview13SelectPageNoAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_6ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/selectPageNoColor</item>
+    </style>
+
+    <!--Textview Size 14 color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview14BlackAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 16 white color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview16WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_12ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 18 white color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview18WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_14ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 20 color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview20SelectPageNoAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/selectPageNoColor</item>
+    </style>
+
+    <!--Textview Size 20 color white actor regular letterSpacing 0.01-->
+    <style name="Textview20WhiteActorRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 20 color Text Select Color actor regular letterSpacing 0.01-->
+    <style name="Textview20TextSelectColorActorRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/textSelectColor</item>
+    </style>
+
+    <!--Textview Size 20 color Text Select Color actor regular letterSpacing 0.01-->
+    <style name="Textview20TextSelectDisableColorActorRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/textSelectColor</item>
+    </style>
+
+    <!--Textview Size 20 color Black actor regular letterSpacing 0.01-->
+    <style name="Textview20TextSelectEnableColorActorRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 20 color Black actor regular letterSpacing 0.01-->
+    <style name="Textview20BlackActorRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 21 white color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview21WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 24 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview20BlackAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_20ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 24 white color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview24WhiteAkayaKanadakaRegularSecond">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 24 color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview24SelectPageNoAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/selectPageNoColor</item>
+    </style>
+
+    <!--Textview Size 24 color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview24BlackAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 28 color select page no akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview28SelectPageNoAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_21ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/selectPageNoColor</item>
+    </style>
+
+    <!--Textview Size 28 color silver akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview28SilverAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_21ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/silverColor</item>
+    </style>
+
+    <!--Textview Size 28 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview28WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_21ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 32 color count color akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32SelectPageNoAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_28ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/score_color</item>
+    </style>
+
+    <!--Textview Size 32 color count color akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32PuzzleCompleteTextColorAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_28ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/puzzleCompleteTextColor</item>
+    </style>
+
+    <!--Textview Size 32 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32BlackAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 32 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32DisableBlackAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/disable_black</item>
+    </style>
+
+    <!--Textview Size 32 color silverColor akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32SilverColorAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/silverColor</item>
+    </style>
+
+    <!--Textview Size 32 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 32 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview32SelectBookPdfAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/selectBookPdfColor</item>
+    </style>
+
+    <!--Textview Size 32 color black actor regular letterSpacing 0.01-->
+    <style name="Textview32BlackActorRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!--Textview Size 36 color white akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview36WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_27ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 36 color black akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview36SelectBookPdfAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_28ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/selectBookPdfColor</item>
+    </style>
+
+    <!--Textview Size 48 color count color akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview48SelectPageNoAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_37sdp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/countColor</item>
+    </style>
+
+    <!--Textview Size 48 color white akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview48WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_40ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!--Textview Size 20 color Black actor regular letterSpacing word spelling bg 0.01-->
+    <style name="Textview20BlackAkayaKanadakaRegularBackGround" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/_16ssp</item>
+        <item name="android:background">@drawable/round_rectangle_word_select_line_background</item>
+        <item name="android:paddingRight">@dimen/_15sdp</item>
+        <item name="android:paddingLeft">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="fontWeight">500</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+    </style>
+
+    <!--Textview Size 24 color white akaya kanadaka regular letterSpacing 0.01-->
+    <style name="Textview24WhiteAkayaKanadakaRegular">
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+    </style>
+
+    <!---->
+    <style name="TextInputLayoutWhiteTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="colorAccent">@color/editTextHintColor</item>
+        <item name="colorControlNormal">@color/editTextHintColor</item>
+        <item name="colorControlActivated">@color/editTextHintColor</item>
+        <item name="android:textColorHighlight">@color/editTextHintColor</item>
+        <item name="android:textColorLink">@color/editTextHintColor</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layoutDirection">locale</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:colorActivatedHighlight">@color/editTextHintColor</item>
+        <item name="android:activatedBackgroundIndicator">@color/editTextHintColor</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+    <!--
+        <item name="android:paddingStart" ns2:ignore="NewApi">@dimen/_5sdp</item>
+        <item name="android:paddingEnd" ns2:ignore="NewApi">@dimen/_5sdp</item>
+    -->
+    <style name="TextInputLayoutEditTextTheme" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_custom_cursor</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/rectangle_edit_text_shape</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_7sdp</item>
+        <item name="android:paddingBottom">@dimen/_7sdp</item>
+    </style>
+
+
+    <!---->
+    <style name="TextInputLayoutSelectPdfWhiteTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="colorAccent">@color/editTextHintColor</item>
+        <item name="colorControlNormal">@color/editTextHintColor</item>
+        <item name="colorControlActivated">@color/editTextHintColor</item>
+        <item name="android:textColorHighlight">@color/editTextHintColor</item>
+        <item name="android:textColorLink">@color/editTextHintColor</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layoutDirection">locale</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:colorActivatedHighlight">@color/editTextHintColor</item>
+        <item name="android:activatedBackgroundIndicator">@color/editTextHintColor</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextInputLayoutSelectPdfEditTextTheme" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:textColor">@color/selectPageNoColor</item>
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_custom_cursor</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/rectangle_edit_text_select_pdf_shape</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_3sdp</item>
+        <item name="android:paddingBottom">@dimen/_3sdp</item>
+    </style>
+
+
+    <!---->
+    <style name="TextInputLayoutEditNameTheme" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="colorAccent">@color/editTextHintColor</item>
+        <item name="colorControlNormal">@color/editTextHintColor</item>
+        <item name="colorControlActivated">@color/editTextHintColor</item>
+        <item name="android:textColorHighlight">@color/editTextHintColor</item>
+        <item name="android:textColorLink">@color/editTextHintColor</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxBackgroundMode">filled</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layoutDirection">locale</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:colorActivatedHighlight">@color/editTextHintColor</item>
+        <item name="android:activatedBackgroundIndicator">@color/editTextHintColor</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <style name="TextInputLayoutEditNameTextTheme" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">@dimen/_15ssp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/editTextHintColor</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_custom_cursor</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:background">@drawable/rectangle_edit_text_name_shape</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textDirection">locale</item>
+        <item name="android:textAlignment">viewStart</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:paddingTop">@dimen/_3sdp</item>
+        <item name="android:paddingBottom">@dimen/_3sdp</item>
+    </style>
+
+    <style name="DefaultNumberPickerTheme" parent="AppTheme">
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <!--Textview Size 25-->
+    <style name="SelectedTextStyle" parent="AppTheme">
+        <item name="android:textSize">@dimen/_25ssp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+        <item name="android:shadowColor">#40000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">4</item>
+        <item name="android:letterSpacing">0.01</item>
+    </style>
+
+    <!--Textview Size 20-->
+    <style name="UnselectedTextStyle" parent="AppTheme">
+        <item name="android:textSize">@dimen/_15sdp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+    </style>
+
+    <style name="ActivityTransparentBG" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/colorBgTransparentMsg</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <style name="RoundedSquare">
+        <item name="cornerSize">10%</item>
+    </style>
+
+    <!--Spinner Border-->
+    <style name="RegularBorderSpinner" parent="@android:style/Widget.Spinner">
+        <item name="android:textSize">@dimen/_18ssp</item>
+        <item name="android:textColor">@color/selectPageNoColor</item>
+        <item name="android:textColorHint">@color/black</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@drawable/rectangle_drop_down_shape</item>
+        <item name="android:paddingStart">@dimen/_12sdp</item>
+        <item name="android:paddingEnd">@dimen/_12sdp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="android:spinnerMode">dropdown</item>
+        <item name="android:popupBackground">@color/black</item>
+        <item name="android:letterSpacing">0.06</item>
+        <item name="android:fontFamily">@font/akaya_kanadaka_regular</item>
+    </style>
+
+    <style name="ThemeOverlay.CustomTextInputEditText" parent="">
+        <item name="colorControlActivated">@color/black</item>
+    </style>
+</resources>

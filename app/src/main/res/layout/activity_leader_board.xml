@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="headerData"
+            type="com.wordpuzzle.app.android.service.model.common.CommonHeaderData" />
+
+        <variable
+            name="eventHandler"
+            type="com.wordpuzzle.app.android.main.ui.leader_board.LeaderBoardEventHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.wordpuzzle.app.android.main.ui.leader_board.LeaderBoardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_leader_board_rectangle_shape_svg">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_image_header_title_back"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:baseHandler="@{eventHandler}"
+            app:dataHeader="@{headerData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintWeeklyMonthlyLayout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_22sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clWeekly"
+                android:layout_width="@dimen/_127sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{()->viewModel.weeklyClick()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivWeekly"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_weekly_shape_svg"
+                    android:visibility="@{viewModel.isWeeklyMonthlyBg == true ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvWeekly"
+                    style="@style/Textview24WhiteAkayaKanadakaRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_13sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="5sp"
+                    android:maxLines="1"
+                    android:text="@string/weekly"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clMonthly"
+                android:layout_width="@dimen/_127sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{()->viewModel.monthlyClick()}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivMonthly"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_monthly_shape_svg"
+                    android:visibility="@{viewModel.isWeeklyMonthlyBg == false ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvPlayerName"
+                    style="@style/Textview24WhiteAkayaKanadakaRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_13sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="5sp"
+                    android:maxLines="1"
+                    android:text="@string/monthly"
+                    android:textAlignment="textEnd"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintScoreBoardLayout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/_176sdp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_29sdp"
+            android:background="@drawable/ic_weekly_monthly_score_rectangle_shape_svg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintWeeklyMonthlyLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintLeftLayout"
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="@dimen/_83sdp"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/ic_silver_rectangle_shape_svg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintCenterLayout">
+
+                <TextView
+                    android:id="@+id/tvLeftName"
+                    style="@style/Textview24WhiteAkayaKanadakaRegularSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:maxLines="1"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{viewModel.playerName2}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivLeftPlayer"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_player"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLeftName"
+                    app:playerImage="@{viewModel.playerImage2}"
+                    app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+                <TextView
+                    android:id="@+id/tvLeftScore"
+                    style="@style/Textview32SilverColorAkayaKanadakaRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:maxLines="1"
+                    android:text="@{viewModel.playerScore2}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivLeftPlayer" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv2nd"
+                style="@style/Textview32SelectBookPdfAkayaKanadakaRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="3sp"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/constraintLeftLayout"
+                app:layout_constraintStart_toStartOf="@+id/constraintLeftLayout"
+                app:layout_constraintTop_toBottomOf="@+id/constraintLeftLayout"
+                app:superscriptText="@{viewModel.text2Data}" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintCenterLayout"
+                android:layout_width="@dimen/_72sdp"
+                android:layout_height="@dimen/_96sdp"
+                android:layout_margin="@dimen/_43sdp"
+                android:background="@drawable/ic_gold_rectangle_shapp_svg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/constraintRightLayout"
+                app:layout_constraintStart_toEndOf="@+id/constraintLeftLayout">
+
+                <TextView
+                    android:id="@+id/tvCenterName"
+                    style="@style/Textview24WhiteAkayaKanadakaRegularSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:maxLines="1"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{viewModel.playerName1}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivCenterPlayer"
+                    android:layout_width="@dimen/_29sdp"
+                    android:layout_height="@dimen/_29sdp"
+                    android:layout_marginTop="@dimen/_4sdp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_player"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvCenterName"
+                    app:playerImage="@{viewModel.playerImage1}"
+                    app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+                <TextView
+                    android:id="@+id/tvCenterScore"
+                    style="@style/Textview36SelectBookPdfAkayaKanadakaRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:maxLines="1"
+                    android:text="638"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivCenterPlayer" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="@dimen/_34sdp" />
+
+            <ImageView
+                android:id="@+id/ivCrown"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:layout_marginTop="-16dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_crown"
+                app:layout_constraintBottom_toBottomOf="@id/guideline"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constraintRightLayout"
+                android:layout_width="@dimen/_64sdp"
+                android:layout_height="@dimen/_83sdp"
+                android:layout_margin="@dimen/_15sdp"
+                android:background="@drawable/ic_bronze_rectangle_shape_svg"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/constraintCenterLayout">
+
+                <TextView
+                    android:id="@+id/tvRightName"
+                    style="@style/Textview24WhiteAkayaKanadakaRegularSecond"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:maxLines="1"
+                    android:padding="@dimen/_2sdp"
+                    android:text="@{viewModel.playerName3}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivRightPlayer"
+                    android:layout_width="@dimen/_24sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_player"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRightName"
+                    app:playerImage="@{viewModel.playerImage3}"
+                    app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+                <TextView
+                    android:id="@+id/tvRightScore"
+                    style="@style/Textview32WhiteAkayaKanadakaRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_4sdp"
+                    android:paddingHorizontal="@dimen/_2sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:maxLines="1"
+                    android:text="@{viewModel.playerScore3}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivRightPlayer" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tv3rd"
+                style="@style/Textview32SelectBookPdfAkayaKanadakaRegular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_4sdp"
+                android:ellipsize="end"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="3sp"
+                android:maxLines="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/constraintRightLayout"
+                app:layout_constraintStart_toStartOf="@+id/constraintRightLayout"
+                app:layout_constraintTop_toBottomOf="@+id/constraintRightLayout"
+                app:superscriptTextForThird="@{viewModel.text3Data}" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/ivWordPuzzleSvg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:adjustViewBounds="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_weekly_score"
+            app:imageResource="@{viewModel.isWeeklyMonthlyBg}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintWeeklyMonthlyLayout" />
+
+        <TextView
+            android:id="@+id/tvScore"
+            style="@style/Textview24WhiteAkayaKanadakaRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginTop="@dimen/_12sdp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="5sp"
+            android:maxLines="1"
+            android:text="@string/score"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintScoreBoardLayout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWeekly"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginVertical="@dimen/_6sdp"
+            android:overScrollMode="never"
+            android:visibility="@{viewModel.isWeeklyMonthlyBg == true ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvScore"
+            tools:itemCount="8"
+            tools:listitem="@layout/row_weekly_layout" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMonthly"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_16sdp"
+            android:layout_marginVertical="@dimen/_6sdp"
+            android:overScrollMode="never"
+            android:visibility="@{viewModel.isWeeklyMonthlyBg == false ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvScore"
+            tools:itemCount="8"
+            tools:listitem="@layout/row_monthly_layout" />
+
+        <include
+            layout="@layout/layout_no_record"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginVertical="@dimen/_11sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintWeeklyMonthlyLayout"
+            app:listEmpty="@{viewModel.listEmpty}" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

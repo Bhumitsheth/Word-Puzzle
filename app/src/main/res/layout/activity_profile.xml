@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="headerData"
+            type="com.wordpuzzle.app.android.service.model.common.CommonHeaderData" />
+
+        <variable
+            name="eventHandler"
+            type="com.wordpuzzle.app.android.main.ui.profile.ProfileEventHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.wordpuzzle.app.android.main.ui.profile.ProfileViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_profile_rectangle_shape_svg">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_image_header_title_back"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:baseHandler="@{eventHandler}"
+            app:dataHeader="@{headerData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_22sdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivUserProfile"
+                    android:layout_width="@dimen/_76sdp"
+                    android:layout_height="@dimen/_97sdp"
+                    android:onClick="@{() -> eventHandler.onSelectUserProfileClick()}"
+                    android:scaleType="fitXY"
+                    app:layout_constraintBottom_toTopOf="@+id/constraintProfileDetailsLayout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:profileImage="@{viewModel.userProfile.profileImage}"
+                    app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/constraintProfileDetailsLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_12sdp"
+                    android:layout_marginTop="@dimen/_18sdp"
+                    android:background="@drawable/ic_profile_details_rectangle_shape_svg"
+                    android:padding="@dimen/_17sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivUserProfile">
+
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        style="@style/Textview24SelectPageNoAkayaKanadakaRegular"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="@{`Email : ` + viewModel.userProfile.email}"
+                        app:layout_constraintBottom_toTopOf="@+id/tvEditName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvEditName"
+                        style="@style/Textview24SelectPageNoAkayaKanadakaRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="@string/editName"
+                        app:layout_constraintBottom_toTopOf="@+id/tvScore"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvEmail" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/tlEditName"
+                        style="@style/TextInputLayoutEditNameTheme"
+                        android:layout_width="@dimen/_120sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvEditName"
+                        app:layout_constraintStart_toEndOf="@+id/tvEditName"
+                        app:layout_constraintTop_toTopOf="@+id/tvEditName"
+                        app:theme="@style/ThemeOverlay.CustomTextInputEditText">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/etEditName"
+                            style="@style/TextInputLayoutEditNameTextTheme"
+                            android:layout_width="@dimen/_120sdp"
+                            android:layout_height="wrap_content"
+                            android:includeFontPadding="false"
+                            android:inputType="text"
+                            android:lineSpacingExtra="0dp"
+                            android:maxLines="1"
+                            android:text="@{viewModel.userProfile.fullName}" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/tvScore"
+                        style="@style/Textview24SelectPageNoAkayaKanadakaRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:ellipsize="end"
+                        android:includeFontPadding="false"
+                        android:maxLines="1"
+                        android:text="@{`Score: ` + viewModel.userProfile.score }"
+                        app:layout_constraintBottom_toTopOf="@+id/cbChangePassword"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvEditName" />
+
+<!--                    <TextView-->
+<!--                        android:id="@+id/tvRank"-->
+<!--                        style="@style/Textview24SelectPageNoAkayaKanadakaRegular"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="@dimen/_5sdp"-->
+<!--                        android:ellipsize="end"-->
+<!--                        android:includeFontPadding="false"-->
+<!--                        android:maxLines="1"-->
+<!--                        android:text="@{`Rank: ` + viewModel.userProfile.rank }"-->
+<!--                        app:layout_constraintBottom_toTopOf="@+id/cbChangePassword"-->
+<!--                        app:layout_constraintStart_toStartOf="parent"-->
+<!--                        app:layout_constraintTop_toBottomOf="@+id/tvScore" />-->
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/cbChangePassword"
+                        style="@style/Textview24SelectPageNoAkayaKanadakaRegular"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="@android:color/transparent"
+                        android:checked="@{viewModel.checkBoxChecked}"
+                        android:includeFontPadding="false"
+                        android:onCheckedChanged="@{(buttonView, isChecked) -> viewModel.onCheckBoxClicked(isChecked)}"
+                        android:text="@string/change_password"
+                        android:visibility="@{viewModel.userProfile.alreadyHavePassword == false ? View.GONE : View.VISIBLE}"
+                        app:buttonIcon="@drawable/checkbox_checked"
+                        app:layout_constraintBottom_toTopOf="@+id/constraintPasswordLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvScore" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintPasswordLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:visibility="@{viewModel.checkBoxChecked ? View.VISIBLE : View.GONE}"
+                        app:layout_constraintBottom_toTopOf="@+id/tvSaveChanges"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/cbChangePassword">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlCurrentPassword"
+                            style="@style/TextInputLayoutWhiteTheme"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginHorizontal="@dimen/_30sdp"
+                            app:endIconMode="password_toggle"
+                            app:layout_constraintBottom_toTopOf="@+id/tlNewPassword"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:passwordToggleDrawable="@drawable/hide_show_password"
+                            app:passwordToggleEnabled="true"
+                            app:theme="@style/ThemeOverlay.CustomTextInputEditText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etCurrentPassword"
+                                style="@style/TextInputLayoutEditTextTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/current_password"
+                                android:includeFontPadding="false"
+                                android:inputType="textPassword"
+                                android:lineSpacingExtra="0dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlNewPassword"
+                            style="@style/TextInputLayoutWhiteTheme"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginHorizontal="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            app:endIconMode="password_toggle"
+                            app:layout_constraintBottom_toTopOf="@+id/tlConfirmPassword"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tlCurrentPassword"
+                            app:passwordToggleDrawable="@drawable/hide_show_password"
+                            app:passwordToggleEnabled="true"
+                            app:theme="@style/ThemeOverlay.CustomTextInputEditText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etNewPassword"
+                                style="@style/TextInputLayoutEditTextTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/new_password"
+                                android:includeFontPadding="false"
+                                android:inputType="textPassword"
+                                android:lineSpacingExtra="0dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/tlConfirmPassword"
+                            style="@style/TextInputLayoutWhiteTheme"
+                            android:layout_width="0dp"
+                            android:layout_height="@dimen/_35sdp"
+                            android:layout_marginHorizontal="@dimen/_30sdp"
+                            android:layout_marginTop="@dimen/_20sdp"
+                            app:endIconMode="password_toggle"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/tlNewPassword"
+                            app:passwordToggleDrawable="@drawable/hide_show_password"
+                            app:passwordToggleEnabled="true"
+                            app:theme="@style/ThemeOverlay.CustomTextInputEditText">
+
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/etConfirmPassword"
+                                style="@style/TextInputLayoutEditTextTheme"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/confirm_password"
+                                android:includeFontPadding="false"
+                                android:inputType="textPassword"
+                                android:lineSpacingExtra="0dp" />
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/tvSaveChanges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/_41sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:background="@drawable/ic_button"
+                        android:onClick="@{()->viewModel.tvSaveClick()}"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/constraintPasswordLayout">
+
+                        <TextView
+                            style="@style/Textview24BlackAkayaKanadakaRegular"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="@dimen/_15sdp"
+                            android:includeFontPadding="false"
+                            android:lineSpacingExtra="5sp"
+                            android:text="@string/saveChanges"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

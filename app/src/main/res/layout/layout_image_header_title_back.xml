@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="dataHeader"
+            type="com.wordpuzzle.app.android.service.model.common.CommonHeaderData" />
+
+        <variable
+            name="baseHandler"
+            type="com.wordpuzzle.app.android.main.base.BaseEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+        <!--app:layout_constraintEnd_toStartOf="@+id/tvTitle"-->
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:contentDescription="@string/app_name"
+            android:onClick="@{() -> baseHandler.onBackClicked()}"
+            android:src="@drawable/ic_back"
+            android:visibility="@{dataHeader.isShowLeftImg? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+            app:layout_constraintEnd_toStartOf="@+id/tvTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+        <!--android:layout_marginEnd="@dimen/_30sdp"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/ivBack"-->
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/HeaderCenterTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_18sdp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="7sp"
+            android:maxLines="1"
+            android:text="@{dataHeader.title}"
+            android:textAlignment="center"
+            android:visibility="@{dataHeader.isShowTitle? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/ivGameHome"
+            app:layout_constraintStart_toEndOf="@+id/ivBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivGameHome"
+            android:layout_width="@dimen/_23sdp"
+            android:layout_height="@dimen/_23sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/ic_game_home"
+            android:visibility="@{dataHeader.isShowRightImg? View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTitle"
+            app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

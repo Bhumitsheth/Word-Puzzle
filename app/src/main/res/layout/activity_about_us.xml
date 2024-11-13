@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="headerData"
+            type="com.wordpuzzle.app.android.service.model.common.CommonHeaderData" />
+
+        <variable
+            name="eventHandler"
+            type="com.wordpuzzle.app.android.main.ui.about_us.AboutUsEventHandler" />
+
+        <variable
+            name="viewModel"
+            type="com.wordpuzzle.app.android.main.ui.about_us.AboutUsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/ic_profile_rectangle_shape_svg">
+
+        <include
+            android:id="@+id/header"
+            layout="@layout/layout_image_header_title_back"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:baseHandler="@{eventHandler}"
+            app:dataHeader="@{headerData}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/header">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_15sdp">
+
+                <ImageView
+                    android:id="@+id/ivWordPuzzleSvg"
+                    android:layout_width="@dimen/_166sdp"
+                    android:layout_height="@dimen/_178sdp"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/app_name"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_word_puzzle_home_logo"
+                    app:layout_constraintBottom_toTopOf="@+id/tvText1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvText1"
+                    style="@style/Textview21WhiteAkayaKanadakaRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/about_text_1"
+                    app:layout_constraintBottom_toTopOf="@+id/tvText2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivWordPuzzleSvg" />
+
+                <TextView
+                    android:id="@+id/tvText2"
+                    style="@style/Textview28WhiteAkayaKanadakaRegular"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/about_text_2"
+                    app:layout_constraintBottom_toTopOf="@+id/tvText3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvText1" />
+
+                <TextView
+                    android:id="@+id/tvText3"
+                    style="@style/Textview21WhiteAkayaKanadakaRegular"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/about_text_3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvText2" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

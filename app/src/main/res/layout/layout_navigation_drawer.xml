@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.wordpuzzle.app.android.main.ui.home.HomeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvPlayerNameDrawer"
+            style="@style/Textview36WhiteAkayaKanadakaRegular"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_17sdp"
+            android:layout_marginTop="@dimen/_50sdp"
+            android:ellipsize="end"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="7sp"
+            android:maxLines="1"
+            android:text="@string/playerName"
+            app:layout_constraintBottom_toTopOf="@+id/rvNavigationDrawer"
+            app:layout_constraintEnd_toStartOf="@+id/ivPlayer"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+        <!--        <ImageView-->
+        <!--            android:id="@+id/ivPlayer"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginHorizontal="@dimen/_7sdp"-->
+        <!--            android:layout_marginEnd="@dimen/_38sdp"-->
+        <!--            android:adjustViewBounds="true"-->
+        <!--            android:contentDescription="@string/app_name"-->
+        <!--            android:scaleType="fitXY"-->
+        <!--            android:src="@drawable/ic_player"-->
+        <!--            app:layout_constraintBottom_toBottomOf="@+id/tvPlayerNameDrawer"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/tvPlayerNameDrawer"-->
+        <!--            app:layout_constraintTop_toTopOf="@+id/tvPlayerNameDrawer" />-->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivPlayer"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_marginEnd="@dimen/_38sdp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/ic_edit_user_profile"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPlayerNameDrawer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvPlayerNameDrawer"
+            app:layout_constraintTop_toTopOf="@+id/tvPlayerNameDrawer"
+            app:navProfileImage="@{viewModel.profileImage}"
+            app:shapeAppearanceOverlay="@style/RoundedSquare" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNavigationDrawer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_11sdp"
+            android:layout_marginVertical="@dimen/_26sdp"
+            android:divider="@color/white"
+            android:dividerHeight="1dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlayerNameDrawer"
+            tools:itemCount="5"
+            tools:listitem="@layout/row_navigation_drawer_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,21 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    dependencies {
+        classpath 'com.android.tools.build:gradle:8.0.2'
+        classpath 'org.jetbrains.kotlin:kotlin-serialization:1.9.0'
+    }
+}
+
+plugins {
+    id 'com.android.application' version '8.0.2' apply false
+    id 'org.jetbrains.kotlin.android' version '1.9.0' apply false
+}
+
+project.ext {
+    /*Release version code and name*/
+//    appVersionCode = 2
+//    appVersionName = "1.1"
+    /*Debug version code & name*/
+    appVersionCode = 3
+    appVersionName = "1.2"
+}
